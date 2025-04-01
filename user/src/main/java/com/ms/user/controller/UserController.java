@@ -1,7 +1,7 @@
 package com.ms.user.controller;
 
-import com.ms.user.models.UserInput;
-import com.ms.user.models.UserModel;
+import com.ms.user.definition.UserInput;
+import com.ms.user.definition.UserModel;
 import com.ms.user.services.UserService;
 import jakarta.validation.Valid;
 import org.springframework.beans.BeanUtils;

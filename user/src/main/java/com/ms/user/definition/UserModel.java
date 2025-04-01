@@ -1,4 +1,4 @@
-package com.ms.user.models;
+package com.ms.user.definition;
 
 import jakarta.persistence.*;
 
