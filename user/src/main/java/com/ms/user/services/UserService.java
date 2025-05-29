@@ -19,9 +19,9 @@ public class UserService {
     }
 
     @Transactional
-    public UserModel saveUser(UserModel model) {
-        var userModel = this.userRepository.save(model);
-        userProducer.publishMessageEmail(model);
+    public UserModel saveUser(UserModel userModel) {
+        userModel = this.userRepository.save(userModel);
+        userProducer.publishMessageEmail(userModel);
         return userModel;
     }
 }
