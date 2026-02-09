@@ -1,0 +1,18 @@
+package com.course.rabbitmq.producer;
+
+import com.course.rabbitmq.producer.producer.HelloRabbitProducer;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.CommandLineRunner;
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.scheduling.annotation.EnableScheduling;
+
+import java.util.concurrent.ThreadLocalRandom;
+
+@EnableScheduling
+@SpringBootApplication
+public class Application {
+	public static void main(String[] args) {
+		SpringApplication.run(Application.class, args);
+	}
+}
