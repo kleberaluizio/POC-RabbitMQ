@@ -1,26 +1,23 @@
-package com.course.rabbitmq.producer.producer;
+package com.course.rabbitmq.producer.producer.default_exchange;
 
-import com.course.rabbitmq.producer.entity.Employee;
+import com.course.rabbitmq.producer.employee.Employee;
 import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.ObjectMapper;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.amqp.rabbit.core.RabbitTemplate;
 import org.springframework.scheduling.annotation.Scheduled;
-import org.springframework.stereotype.Service;
 
 import java.time.LocalDate;
 
-@Service
-public class EmployeeJsonProducer {
+//@Service
+public
+class EmployeeJsonProducer {
 
     private static final Logger LOG = LoggerFactory.getLogger(EmployeeJsonProducer.class);
     private final RabbitTemplate rabbitTemplate;
-    private final ObjectMapper mapper;
 
-    public EmployeeJsonProducer(RabbitTemplate rabbitTemplate, ObjectMapper mapper) {
+    public EmployeeJsonProducer(RabbitTemplate rabbitTemplate) {
         this.rabbitTemplate = rabbitTemplate;
-        this.mapper = mapper;
     }
 
     @Scheduled(fixedRate = 500000)
@@ -33,7 +30,6 @@ public class EmployeeJsonProducer {
     }
 
     public void sendMessage(Employee employee) throws JsonProcessingException {
-        var json = mapper.writeValueAsString(employee);
-        rabbitTemplate.convertAndSend("course.employee", json);
+        rabbitTemplate.convertAndSend("course.employee", employee);
     }
 }

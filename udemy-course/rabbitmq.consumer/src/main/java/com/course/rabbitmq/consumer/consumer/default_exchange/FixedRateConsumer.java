@@ -1,4 +1,4 @@
-package com.course.rabbitmq.consumer.consumer;
+package com.course.rabbitmq.consumer.consumer.default_exchange;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

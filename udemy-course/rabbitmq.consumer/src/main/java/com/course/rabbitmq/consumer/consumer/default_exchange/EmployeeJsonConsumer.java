@@ -1,8 +1,7 @@
-package com.course.rabbitmq.consumer.consumer;
+package com.course.rabbitmq.consumer.consumer.default_exchange;
 
 import com.course.rabbitmq.consumer.entity.Employee;
 import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.ObjectMapper;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.amqp.rabbit.annotation.RabbitListener;
@@ -12,16 +11,10 @@ import org.springframework.stereotype.Service;
 public class EmployeeJsonConsumer {
 
     private static final Logger LOG = LoggerFactory.getLogger(EmployeeJsonConsumer.class);
-    private final ObjectMapper mapper;
-
-    public EmployeeJsonConsumer(ObjectMapper mapper) {
-        this.mapper = mapper;
-    }
 
     @RabbitListener(queues = "course.employee")
-    public void consume(String message) throws JsonProcessingException, InterruptedException {
+    public void consume(Employee employee) throws JsonProcessingException, InterruptedException {
         Thread.sleep(500);
-        Employee employee = mapper.readValue(message, Employee.class);
         LOG.info("Consume Employee: {}", employee);
     }
 }

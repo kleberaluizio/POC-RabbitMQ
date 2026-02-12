@@ -1,4 +1,4 @@
-package com.course.rabbitmq.producer.entity;
+package com.course.rabbitmq.producer.employee;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 

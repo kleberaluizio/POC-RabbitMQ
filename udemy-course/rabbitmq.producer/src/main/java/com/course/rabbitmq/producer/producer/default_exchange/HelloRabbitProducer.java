@@ -1,4 +1,4 @@
-package com.course.rabbitmq.producer.producer;
+package com.course.rabbitmq.producer.producer.default_exchange;
 
 import org.springframework.amqp.rabbit.core.RabbitTemplate;
 import org.springframework.stereotype.Service;
